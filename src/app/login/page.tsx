@@ -70,7 +70,7 @@ export default function LoginPage() {
       </div>
        <footer className="w-full py-6 text-center">
           <p className="text-gray-600 text-sm">
-            Copyright © 2024 UNIVERSCO Web App 2024 All Rights Reserved.
+            © 2025 BelHouda. All rights reserved.
           </p>
         </footer>
     </div>
