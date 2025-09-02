@@ -54,8 +54,8 @@ export default function SignUpPage() {
                   className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:bg-white/20 focus:ring-accent"
                 />
               </div>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-bold py-6 mt-4">
-                إنشاء حساب
+              <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-bold py-6 mt-4">
+                <Link href="/signup/role">إنشاء حساب</Link>
               </Button>
             </CardContent>
             <CardFooter className="flex justify-center">
