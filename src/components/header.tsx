@@ -61,7 +61,7 @@ export default function Header() {
 
         <nav className="flex items-center gap-4">
            <ul className="hidden md:flex items-center gap-6 text-lg">
-                <li><Link href="/" className="hover:text-primary transition-colors font-medium">الرئيسية</Link></li>
+                <li><Link href="/latest" className="hover:text-primary transition-colors font-medium">الرئيسية</Link></li>
                 <li><Link href="/library" className="hover:text-primary transition-colors font-medium">المكتبة</Link></li>
                 <li><Link href="/login" className="hover:text-primary transition-colors font-medium">تسجيل الدخول</Link></li>
             </ul>
