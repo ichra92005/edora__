@@ -2,15 +2,15 @@ import { books as allBooks } from '@/lib/data';
 import LatestBookCard from '@/components/latest-book-card';
 import type { Book } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import { List } from 'lucide-react';
+import { List, Grid } from 'lucide-react';
 
 export default function LatestPage() {
   const latestBooks: Book[] = [...allBooks].sort((a, b) => b.id - a.id);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8" dir="rtl">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-3xl font-headline font-bold text-right" dir="rtl">
+        <h2 className="text-3xl font-headline font-bold">
           أحدث الفصول
         </h2>
         <div className="flex items-center gap-2">
@@ -19,10 +19,10 @@ export default function LatestPage() {
             </Button>
             <div className="flex border rounded-md">
                  <Button variant="ghost" className="rounded-r-none border-l">
-                    B
+                    <List className="h-5 w-5" />
                  </Button>
                  <Button variant="ghost" className="rounded-l-none">
-                    A
+                    <Grid className="h-5 w-5" />
                  </Button>
             </div>
         </div>
