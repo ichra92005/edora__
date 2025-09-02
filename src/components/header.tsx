@@ -102,9 +102,11 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" aria-label="Login">
-            <User className="h-5 w-5" />
-          </Button>
+          <Link href="/login" passHref>
+            <Button variant="ghost" size="icon" aria-label="Login">
+              <User className="h-5 w-5" />
+            </Button>
+          </Link>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon" aria-label="Menu">
