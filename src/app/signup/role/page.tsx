@@ -1,24 +1,36 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { PenTool, Home, Building } from 'lucide-react';
 import UniversityLogo from '@/components/university-logo';
 
 const RoleCard = ({ title, arabicTitle, icon: Icon, color, href }: { title: string, arabicTitle: string, icon: React.ElementType, color: string, href: string }) => (
   <Link href={href} className="block w-full max-w-sm transform transition-transform hover:scale-105">
-    <Card className={`relative overflow-hidden rounded-2xl p-8 text-white shadow-2xl ${color}`}>
+    <Card className={`relative overflow-hidden rounded-2xl p-8 text-center text-white shadow-2xl ${color}`}>
+      <Icon className="mx-auto h-12 w-12 mb-4 text-white/80" />
       <div className="relative z-10">
-        <h2 className="text-2xl font-bold uppercase tracking-wider">{title}</h2>
-        <p className="text-4xl font-headline mt-2">{arabicTitle}</p>
-        <p className="mt-8 font-semibold uppercase tracking-widest text-sm">ACCESS THE PORTAL</p>
+        <h2 className="text-xl font-bold uppercase tracking-wider">{title}</h2>
+        <p className="text-3xl font-headline mt-1">{arabicTitle}</p>
+        <p className="mt-6 font-semibold uppercase tracking-widest text-sm border border-white/50 rounded-full py-2 px-4 inline-block hover:bg-white/10 transition-colors">
+          Access the Portal
+        </p>
       </div>
-      <Icon className="absolute -right-4 -bottom-4 h-32 w-32 text-white/20 transform" />
     </Card>
   </Link>
 );
 
 export default function RoleSelectionPage() {
   return (
-    <div className="relative min-h-screen w-full bg-white text-gray-800">
+    <div className="relative min-h-screen w-full">
+       <Image
+        src="https://picsum.photos/seed/space/1920/1080"
+        alt="Starry background"
+        fill
+        className="object-cover"
+        data-ai-hint="starry background"
+      />
+      <div className="absolute inset-0 bg-black/50" />
+      
       <div className="relative min-h-screen flex flex-col items-center justify-center p-4 text-center">
         <header className="absolute top-0 py-6">
           <UniversityLogo />
@@ -46,7 +58,7 @@ export default function RoleSelectionPage() {
             href="/#"
           />
         </main>
-        <footer className="absolute bottom-0 py-4 text-sm text-gray-600">
+        <footer className="absolute bottom-0 py-4 text-sm text-white/70">
           <p>Copyright © 2024 UNIVERSCO Web App 2024 All Rights Reserved.</p>
         </footer>
       </div>
