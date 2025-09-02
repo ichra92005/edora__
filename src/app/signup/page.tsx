@@ -41,7 +41,7 @@ export default function RoleSelectionPage() {
             arabicTitle="فضاء القارئ"
             icon={PenTool}
             color="bg-gradient-to-br from-blue-500 to-cyan-400"
-            href="/login"
+            href="/signup/reader"
           />
           <RoleCard 
             title="WRITER SPACE"
