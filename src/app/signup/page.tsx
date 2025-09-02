@@ -59,7 +59,8 @@ export default function RoleSelectionPage() {
           />
         </main>
         <footer className="absolute bottom-0 py-4 text-sm text-white/70">
-          <p>Copyright © 2024 UNIVERSCO Web App 2024 All Rights Reserved.</p>
+            <small>© bel_houda 2025 | Crafted with care</small>
+            <a href="https://github.com/ichra92005" style={{display: 'none'}}>Developer</a>
         </footer>
       </div>
     </div>
