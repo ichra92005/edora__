@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { PenTool, Home, Building } from 'lucide-react';
-import UniversityLogo from '@/components/university-logo';
 
 const RoleCard = ({ title, arabicTitle, icon: Icon, color, href }: { title: string, arabicTitle: string, icon: React.ElementType, color: string, href: string }) => (
   <Link href={href} className="block w-full max-w-sm transform transition-transform hover:scale-105">
@@ -29,9 +28,6 @@ export default function RoleSelectionPage() {
       />
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative min-h-screen flex flex-col items-center justify-center p-4 text-center">
-        <div className="mb-12">
-            <UniversityLogo />
-        </div>
         <div className="flex flex-wrap justify-center gap-8">
           <RoleCard 
             title="READER SPACE"
@@ -55,9 +51,6 @@ export default function RoleSelectionPage() {
             href="/#"
           />
         </div>
-         <footer className="absolute bottom-4 text-white/80 text-sm">
-          Copyright © 2024 UNIVERSCO Web App 2024 All Rights Reserved.
-        </footer>
       </div>
     </div>
   );
