@@ -1,78 +1,80 @@
-import { Feather, Home } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 
-const InfoCard = ({
-  gradient,
-  title,
-  arabicTitle,
-  icon: Icon,
-  href,
-}: {
-  gradient: string;
-  title: string;
-  arabicTitle: string;
-  icon: React.ElementType;
-  href: string;
-}) => (
-  <Link href={href} className="block w-full md:w-1/3 p-4">
-    <div
-      className={`relative rounded-2xl shadow-lg text-white p-8 overflow-hidden h-64 flex flex-col justify-between transition-transform transform hover:-translate-y-2 ${gradient}`}
-    >
-      <div className="z-10">
-        <h2 className="text-2xl font-bold">{title}</h2>
-        <p className="text-3xl font-bold mt-2" dir="rtl">{arabicTitle}</p>
-      </div>
-      <p className="text-sm font-semibold z-10">ACCESS THE PORTAL</p>
-      <Icon className="absolute -right-4 -bottom-4 h-48 w-48 text-white/20 z-0" strokeWidth={1} />
-    </div>
-  </Link>
-);
-
-export default function LoginPage() {
+export default function WelcomePage() {
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center font-sans">
-      <div className="container mx-auto px-4 py-8 text-center">
-        <header className="mb-12">
-           <Image
-              src="https://picsum.photos/seed/logo/200/80"
-              alt="University of Saida Logo"
-              width={200}
-              height={80}
-              className="mx-auto object-contain"
-              data-ai-hint="university logo"
-            />
-        </header>
-
-        <main className="flex flex-col md:flex-row justify-center items-center gap-8">
-          <InfoCard
-            href="#"
-            gradient="bg-gradient-to-br from-blue-400 to-blue-600"
-            title="READER SPACE"
-            arabicTitle="فضاء القارئ"
-            icon={Feather}
-          />
-          <InfoCard
-            href="#"
-            gradient="bg-gradient-to-br from-green-400 to-green-600"
-            title="WRITER SPACE"
-            arabicTitle="فضاء الكاتب"
-            icon={Home}
-          />
-          <InfoCard
-            href="#"
-            gradient="bg-gradient-to-br from-purple-400 to-purple-600"
-            title="PUBLISHER SPACE"
-            arabicTitle="فضاء الناشر"
-            icon={Home}
-          />
-        </main>
+    <div className="relative min-h-screen w-full">
+      <Image
+        src="https://picsum.photos/seed/space/1920/1080"
+        alt="Earth from space"
+        fill
+        className="object-cover"
+        data-ai-hint="earth space"
+      />
+      <div className="absolute inset-0 bg-black/60" />
+      
+      <div className="relative min-h-screen flex items-center justify-center p-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 max-w-6xl w-full">
+          
+          {/* Left Side: Welcome Text & Explore Button */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-right text-white space-y-12">
+            <div className="space-y-6">
+                 <h1 className="text-4xl md:text-5xl font-bold font-headline uppercase tracking-widest text-primary">
+                    هل تود الانطلاق في رحلة إلى <span className="text-accent">عالم سلسَبيل؟</span>
+                </h1>
+                <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto lg:mx-0 font-body">
+                    اكتشف عالم الكتب مع سَلسَبيل، منصتك المثالية لقراءة وتحميل الكتب الإلكترونية مجاناً. استمتع بتجربة قراءة فريدة وسهلة الوصول إلى مكتبة واسعة من الكتب في مختلف المجالات.
+                </p>
+            </div>
+            <Link href="/library" className="group relative flex items-center justify-center h-48 w-48">
+                <div className="absolute inset-0 bg-white rounded-full transition-transform transform group-hover:scale-110"></div>
+                <span className="relative text-2xl font-bold font-headline text-black uppercase tracking-widest">
+                استكشف
+                </span>
+            </Link>
+          </div>
+          
+          {/* Right Side: Login Form */}
+          <div className="w-full max-w-md">
+            <Card className="bg-background/50 backdrop-blur-sm border-white/20 text-white">
+              <CardHeader className="text-center">
+                <CardTitle className="text-3xl font-headline">تسجيل الدخول</CardTitle>
+                <CardDescription className="text-white/70">
+                  أدخل بياناتك للوصول إلى حسابك
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="username" className="text-white/90">اسم المستخدم</Label>
+                  <Input 
+                    id="username" 
+                    type="text" 
+                    placeholder="اسم المستخدم الخاص بك"
+                    className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:bg-white/20 focus:ring-accent"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password">كلمة المرور</Label>
+                  <Input 
+                    id="password" 
+                    type="password" 
+                    placeholder="كلمة المرور الخاصة بك"
+                    className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:bg-white/20 focus:ring-accent"
+                  />
+                </div>
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-bold py-6">
+                  تسجيل الدخول
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+          
+        </div>
       </div>
-       <footer className="w-full py-6 text-center">
-          <p className="text-gray-600 text-sm">
-            © 2025 BelHouda. All rights reserved.
-          </p>
-        </footer>
     </div>
   );
 }

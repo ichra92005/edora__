@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Search } from 'lucide-react';
+import Header from '@/components/header';
 
 const genres = Array.from(new Set(allBooks.map(book => book.genre)));
 
@@ -72,72 +73,77 @@ function BookGrid() {
   }, [searchTerm, selectedGenre, sortOrder]);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <section className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">
-          اكتشف قراءتك التالية
-        </h2>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          تصفح مجموعتنا المنسقة من الكتب. قم بالتصفية حسب النوع، أو قم بالفرز حسب تفضيلاتك، أو ابحث عن عنوان معين للعثور على مغامرتك التالية.
-        </p>
-      </section>
+    <>
+      <Header />
+      <main className="flex-1">
+        <div className="container mx-auto px-4 py-8">
+          <section className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">
+              اكتشف قراءتك التالية
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              تصفح مجموعتنا المنسقة من الكتب. قم بالتصفية حسب النوع، أو قم بالفرز حسب تفضيلاتك، أو ابحث عن عنوان معين للعثور على مغامرتك التالية.
+            </p>
+          </section>
 
-      <div className="mb-8 p-4 bg-card rounded-lg shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="البحث عن طريق العنوان أو المؤلف..."
-              className="pl-10 w-full"
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-              aria-label="البحث عن طريق العنوان أو المؤلف"
-            />
+          <div className="mb-8 p-4 bg-card rounded-lg shadow-sm border">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="البحث عن طريق العنوان أو المؤلف..."
+                  className="pl-10 w-full"
+                  value={searchTerm}
+                  onChange={e => setSearchTerm(e.target.value)}
+                  aria-label="البحث عن طريق العنوان أو المؤلف"
+                />
+              </div>
+              <Select value={selectedGenre} onValueChange={setSelectedGenre}>
+                <SelectTrigger className="w-full" aria-label="التصفية حسب النوع">
+                  <SelectValue placeholder="التصفية حسب النوع" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="All">كل الأنواع</SelectItem>
+                  {genres.map(genre => (
+                    <SelectItem key={genre} value={genre}>
+                      {genre}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Select value={sortOrder} onValueChange={setSortOrder}>
+                <SelectTrigger className="w-full" aria-label="الفرز حسب">
+                  <SelectValue placeholder="الفرز حسب" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="rating-desc">التقييم: من الأعلى إلى الأقل</SelectItem>
+                  <SelectItem value="rating-asc">التقييم: من الأقل إلى الأعلى</SelectItem>
+                  <SelectItem value="title-asc">العنوان: أ-ي</SelectItem>
+                  <SelectItem value="title-desc">العنوان: ي-أ</SelectItem>
+                  <SelectItem value="author-asc">المؤلف: أ-ي</SelectItem>
+                  <SelectItem value="author-desc">المؤلف: ي-أ</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
-          <Select value={selectedGenre} onValueChange={setSelectedGenre}>
-            <SelectTrigger className="w-full" aria-label="التصفية حسب النوع">
-              <SelectValue placeholder="التصفية حسب النوع" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="All">كل الأنواع</SelectItem>
-              {genres.map(genre => (
-                <SelectItem key={genre} value={genre}>
-                  {genre}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Select value={sortOrder} onValueChange={setSortOrder}>
-            <SelectTrigger className="w-full" aria-label="الفرز حسب">
-              <SelectValue placeholder="الفرز حسب" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="rating-desc">التقييم: من الأعلى إلى الأقل</SelectItem>
-              <SelectItem value="rating-asc">التقييم: من الأقل إلى الأعلى</SelectItem>
-              <SelectItem value="title-asc">العنوان: أ-ي</SelectItem>
-              <SelectItem value="title-desc">العنوان: ي-أ</SelectItem>
-              <SelectItem value="author-asc">المؤلف: أ-ي</SelectItem>
-              <SelectItem value="author-desc">المؤلف: ي-أ</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-      </div>
 
-      {filteredAndSortedBooks.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-          {filteredAndSortedBooks.map(book => (
-            <BookCard key={book.id} book={book} />
-          ))}
+          {filteredAndSortedBooks.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+              {filteredAndSortedBooks.map(book => (
+                <BookCard key={book.id} book={book} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16">
+              <p className="text-xl text-muted-foreground">
+                لم يتم العثور على كتب. حاول تعديل البحث أو عوامل التصفية.
+              </p>
+            </div>
+          )}
         </div>
-      ) : (
-        <div className="text-center py-16">
-          <p className="text-xl text-muted-foreground">
-            لم يتم العثور على كتب. حاول تعديل البحث أو عوامل التصفية.
-          </p>
-        </div>
-      )}
-    </div>
+      </main>
+    </>
   );
 }
 
