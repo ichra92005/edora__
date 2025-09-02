@@ -13,8 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Search } from 'lucide-react';
+import { Search, Eye } from 'lucide-react';
 import Header from '@/components/header';
+import { Button } from '@/components/ui/button';
 
 const genres = Array.from(new Set(allBooks.map(book => book.genre)));
 
@@ -86,47 +87,54 @@ function BookGrid() {
             </p>
           </section>
 
-          <div className="mb-8 p-4 bg-card rounded-lg shadow-sm border">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="البحث عن طريق العنوان أو المؤلف..."
-                  className="pl-10 w-full"
-                  value={searchTerm}
-                  onChange={e => setSearchTerm(e.target.value)}
-                  aria-label="البحث عن طريق العنوان أو المؤلف"
-                />
-              </div>
-              <Select value={selectedGenre} onValueChange={setSelectedGenre}>
-                <SelectTrigger className="w-full" aria-label="التصفية حسب النوع">
-                  <SelectValue placeholder="التصفية حسب النوع" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="All">كل الأنواع</SelectItem>
-                  {genres.map(genre => (
-                    <SelectItem key={genre} value={genre}>
-                      {genre}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Select value={sortOrder} onValueChange={setSortOrder}>
-                <SelectTrigger className="w-full" aria-label="الفرز حسب">
-                  <SelectValue placeholder="الفرز حسب" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="rating-desc">التقييم: من الأعلى إلى الأقل</SelectItem>
-                  <SelectItem value="rating-asc">التقييم: من الأقل إلى الأعلى</SelectItem>
-                  <SelectItem value="title-asc">العنوان: أ-ي</SelectItem>
-                  <SelectItem value="title-desc">العنوان: ي-أ</SelectItem>
-                  <SelectItem value="author-asc">المؤلف: أ-ي</SelectItem>
-                  <SelectItem value="author-desc">المؤلف: ي-أ</SelectItem>
-                </SelectContent>
-              </Select>
+          <div className="mb-8">
+             <Button variant="outline" className="w-full h-12 text-lg justify-end px-6 mb-4 border-border/60 bg-card hover:bg-muted">
+                <span className="flex-1 text-center font-headline tracking-wider">إضافة كتاب جديد</span>
+                <Eye className="h-6 w-6 ml-4" />
+            </Button>
+            <div className="p-4 bg-card rounded-lg shadow-sm border">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Input
+                    type="text"
+                    placeholder="البحث عن طريق العنوان أو المؤلف..."
+                    className="pl-10 w-full"
+                    value={searchTerm}
+                    onChange={e => setSearchTerm(e.target.value)}
+                    aria-label="البحث عن طريق العنوان أو المؤلف"
+                    />
+                </div>
+                <Select value={selectedGenre} onValueChange={setSelectedGenre}>
+                    <SelectTrigger className="w-full" aria-label="التصفية حسب النوع">
+                    <SelectValue placeholder="التصفية حسب النوع" />
+                    </SelectTrigger>
+                    <SelectContent>
+                    <SelectItem value="All">كل الأنواع</SelectItem>
+                    {genres.map(genre => (
+                        <SelectItem key={genre} value={genre}>
+                        {genre}
+                        </SelectItem>
+                    ))}
+                    </SelectContent>
+                </Select>
+                <Select value={sortOrder} onValueChange={setSortOrder}>
+                    <SelectTrigger className="w-full" aria-label="الفرز حسب">
+                    <SelectValue placeholder="الفرز حسب" />
+                    </SelectTrigger>
+                    <SelectContent>
+                    <SelectItem value="rating-desc">التقييم: من الأعلى إلى الأقل</SelectItem>
+                    <SelectItem value="rating-asc">التقييم: من الأقل إلى الأعلى</SelectItem>
+                    <SelectItem value="title-asc">العنوان: أ-ي</SelectItem>
+                    <SelectItem value="title-desc">العنوان: ي-أ</SelectItem>
+                    <SelectItem value="author-asc">المؤلف: أ-ي</SelectItem>
+                    <SelectItem value="author-desc">المؤلف: ي-أ</SelectItem>
+                    </SelectContent>
+                </Select>
+                </div>
             </div>
           </div>
+
 
           {filteredAndSortedBooks.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">

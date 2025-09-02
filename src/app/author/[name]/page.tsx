@@ -2,6 +2,8 @@ import { books } from '@/lib/data';
 import BookCard from '@/components/book-card';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Eye } from 'lucide-react';
+import Link from 'next/link';
 
 interface AuthorPageProps {
   params: {
