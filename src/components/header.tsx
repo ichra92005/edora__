@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 const Logo = ({ isDark }: { isDark: boolean }) => (
   <Image 
-    src={isDark ? "/assets/logo-dark.png" : "/assets/logo-light.png"} 
+    src={isDark ? "/assets/logo-dark.svg" : "/assets/logo-light.svg"} 
     alt="Salsabile Logo" 
     width={120} 
     height={40}
