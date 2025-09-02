@@ -15,6 +15,7 @@ import {
   HelpCircle,
   Phone,
   User,
+  Wand2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -58,26 +59,28 @@ const Logo = () => (
 
 export default function Header() {
   const menuItems = [
-    { href: '/', label: 'الرئيسية', icon: Home },
-    { href: '/news', label: 'الأخبار', icon: Newspaper },
-    { href: '/manga', label: 'المانجات', icon: BookImage },
-    { href: '/latest', label: 'آخر الإضافات', icon: RefreshCw },
-    { href: '/comments', label: 'التعليقات', icon: MessageSquare },
-    { href: '/support', label: 'الدعم الفني', icon: LifeBuoy },
-    { href: '/settings', label: 'إعدادات الموقع', icon: Settings },
-    { href: '/faq', label: 'أسئلة شائعة', icon: HelpCircle },
-    { href: '/contact', label: 'تواصل معنا', icon: Phone },
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/recommendations', label: 'AI Recommendations', icon: Wand2 },
+    { href: '/', label: 'News', icon: Newspaper },
+    { href: '/', label: 'Manga', icon: BookImage },
+    { href: '/latest', label: 'Latest Releases', icon: RefreshCw },
+    { href: '/', label: 'Comments', icon: MessageSquare },
+    { href: '/', label: 'Support', icon: LifeBuoy },
+    { href: '/', label: 'Settings', icon: Settings },
+    { href: '/', label: 'FAQ', icon: HelpCircle },
+    { href: '/', label: 'Contact Us', icon: Phone },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center gap-2">
           <Logo />
+           <span className="font-headline text-xl font-bold">Nexus Library</span>
         </Link>
         <div className="flex flex-1 items-center justify-center">
           <div className="flex w-full max-w-lg items-center space-x-2">
-            <Link href="/manga" passHref>
+            <Link href="/" passHref>
               <Button variant="outline" size="icon" aria-label="Layout Grid">
                 <LayoutGrid className="h-5 w-5" />
               </Button>
@@ -109,10 +112,10 @@ export default function Header() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
-              <DropdownMenuLabel>قوائم الموقع</DropdownMenuLabel>
+              <DropdownMenuLabel>Nexus Library</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              {menuItems.map((item) => (
-                <DropdownMenuItem key={item.href} asChild>
+              {menuItems.map((item, index) => (
+                <DropdownMenuItem key={index} asChild>
                   <Link
                     href={item.href}
                     className="flex w-full items-center justify-between"
