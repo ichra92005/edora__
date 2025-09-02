@@ -1,14 +1,28 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
+import { Card } from '@/components/ui/card';
+import { PenTool, Home, Building } from 'lucide-react';
+import UniversityLogo from '@/components/university-logo';
 
-export default function SignUpPage() {
+const RoleCard = ({ title, arabicTitle, icon: Icon, color, href }: { title: string, arabicTitle: string, icon: React.ElementType, color: string, href: string }) => (
+  <Link href={href} className="block w-full max-w-sm transform transition-transform hover:scale-105">
+    <Card className={`relative overflow-hidden rounded-2xl p-8 text-center text-white shadow-2xl ${color}`}>
+      <Icon className="mx-auto h-12 w-12 mb-4 text-white/80" />
+      <div className="relative z-10">
+        <h2 className="text-xl font-bold uppercase tracking-wider">{title}</h2>
+        <p className="text-3xl font-headline mt-1">{arabicTitle}</p>
+        <p className="mt-6 font-semibold uppercase tracking-widest text-sm border border-white/50 rounded-full py-2 px-4 inline-block hover:bg-white/10 transition-colors">
+          Access the Portal
+        </p>
+      </div>
+    </Card>
+  </Link>
+);
+
+export default function RoleSelectionPage() {
   return (
     <div className="relative min-h-screen w-full">
-      <Image
+       <Image
         src="https://picsum.photos/seed/space/1920/1080"
         alt="Starry background"
         fill
@@ -17,57 +31,36 @@ export default function SignUpPage() {
       />
       <div className="absolute inset-0 bg-black/50" />
       
-      <div className="relative min-h-screen flex items-center justify-center p-4">
-        <div className="w-full max-w-md">
-          <Card className="bg-gray-900/60 backdrop-blur-md border-white/20 text-white">
-            <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-headline">إنشاء حساب جديد</CardTitle>
-              <CardDescription className="text-white/70">
-                انضم إلينا واكتشف عالمًا من الكتب
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6 text-right">
-              <div className="space-y-2">
-                <Label htmlFor="username" className="text-white/90">اسم المستخدم</Label>
-                <Input 
-                  id="username" 
-                  type="text" 
-                  placeholder="اختر اسم مستخدم فريد"
-                  className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:bg-white/20 focus:ring-accent text-right"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">كلمة المرور</Label>
-                <Input 
-                  id="password" 
-                  type="password" 
-                  placeholder="اختر كلمة مرور قوية"
-                  className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:bg-white/20 focus:ring-accent text-right"
-                />
-              </div>
-               <div className="space-y-2">
-                <Label htmlFor="confirm-password">تأكيد كلمة المرور</Label>
-                <Input 
-                  id="confirm-password" 
-                  type="password" 
-                  placeholder="أعد إدخال كلمة المرور"
-                  className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:bg-white/20 ring-offset-background focus:ring-primary ring-2 ring-transparent focus:ring-offset-0"
-                />
-              </div>
-              <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-bold py-6 mt-4">
-                <Link href="/signup/role">إنشاء حساب</Link>
-              </Button>
-            </CardContent>
-            <CardFooter className="flex justify-center">
-              <p className="text-sm text-white/70">
-                لديك حساب بالفعل؟{' '}
-                <Link href="/login" className="font-semibold text-accent hover:underline">
-                  تسجيل الدخول
-                </Link>
-              </p>
-            </CardFooter>
-          </Card>
-        </div>
+      <div className="relative min-h-screen flex flex-col items-center justify-center p-4 text-center">
+        <header className="absolute top-0 py-6">
+          <UniversityLogo />
+        </header>
+        <main className="flex flex-wrap justify-center gap-8 mt-24 mb-16">
+          <RoleCard 
+            title="READER SPACE"
+            arabicTitle="فضاء القارئ"
+            icon={PenTool}
+            color="bg-gradient-to-br from-blue-500 to-cyan-400"
+            href="/library"
+          />
+          <RoleCard 
+            title="WRITER SPACE"
+            arabicTitle="فضاء الكاتب"
+            icon={Home}
+            color="bg-gradient-to-br from-lime-500 to-green-400"
+            href="/#"
+          />
+          <RoleCard 
+            title="PUBLISHER SPACE"
+            arabicTitle="فضاء الناشر"
+            icon={Building}
+            color="bg-gradient-to-br from-purple-500 to-indigo-400"
+            href="/#"
+          />
+        </main>
+        <footer className="absolute bottom-0 py-4 text-sm text-white/70">
+          <p>Copyright © 2024 UNIVERSCO Web App 2024 All Rights Reserved.</p>
+        </footer>
       </div>
     </div>
   );
