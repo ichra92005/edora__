@@ -14,6 +14,7 @@ import {
   Settings,
   HelpCircle,
   Phone,
+  User,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -76,12 +77,16 @@ export default function Header() {
         </Link>
         <div className="flex flex-1 items-center justify-center">
           <div className="flex w-full max-w-lg items-center space-x-2">
-            <Button variant="outline" size="icon" aria-label="Layout Grid">
-              <LayoutGrid className="h-5 w-5" />
-            </Button>
-            <Button variant="outline" size="icon" aria-label="Home">
-              <Home className="h-5 w-5" />
-            </Button>
+            <Link href="/manga" passHref>
+              <Button variant="outline" size="icon" aria-label="Layout Grid">
+                <LayoutGrid className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/latest" passHref>
+              <Button variant="outline" size="icon" aria-label="Home">
+                <Home className="h-5 w-5" />
+              </Button>
+            </Link>
             <div className="relative w-full">
               <Input
                 type="search"
@@ -93,28 +98,33 @@ export default function Header() {
           </div>
         </div>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="icon" aria-label="Menu">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>قوائم الموقع</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {menuItems.map((item) => (
-              <DropdownMenuItem key={item.href} asChild>
-                <Link
-                  href={item.href}
-                  className="flex w-full items-center justify-between"
-                >
-                  <span>{item.label}</span>
-                  <item.icon className="h-4 w-4 text-muted-foreground" />
-                </Link>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex items-center gap-2">
+          <Button variant="ghost" size="icon" aria-label="Login">
+            <User className="h-5 w-5" />
+          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon" aria-label="Menu">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuLabel>قوائم الموقع</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {menuItems.map((item) => (
+                <DropdownMenuItem key={item.href} asChild>
+                  <Link
+                    href={item.href}
+                    className="flex w-full items-center justify-between"
+                  >
+                    <span>{item.label}</span>
+                    <item.icon className="h-4 w-4 text-muted-foreground" />
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </header>
   );
