@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Star, PlusSquare } from 'lucide-react';
+import Link from 'next/link';
 
 interface BookPageProps {
   params: {
@@ -59,7 +60,7 @@ export default function BookPage({ params }: BookPageProps) {
               </div>
 
               <dl className="space-y-2">
-                <InfoRow label="المؤلفون" value={<div className="flex gap-2">{mockDetails.authors.map(a => <Badge key={a} variant="secondary">{a}</Badge>)}</div>} />
+                <InfoRow label="المؤلفون" value={<div className="flex gap-2">{mockDetails.authors.map(a => <Link key={a} href={`/author/${encodeURIComponent(a)}`}><Badge variant="secondary" className="hover:bg-primary/20">{a}</Badge></Link>)}</div>} />
                 <InfoRow label="الرسامون" value={<div className="flex gap-2">{mockDetails.artists.map(a => <Badge key={a} variant="secondary">{a}</Badge>)}</div>} />
                 <InfoRow label="التصنيف" value="-" />
                 <InfoRow label="الأصل" value={mockDetails.origin} />
