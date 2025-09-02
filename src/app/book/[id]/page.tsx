@@ -55,7 +55,9 @@ export default function BookPage({ params }: BookPageProps) {
             <div className="md:col-span-2">
               <div className="flex flex-wrap gap-2 mb-6">
                 {mockDetails.genres.map(genre => (
-                  <Badge key={genre} variant="outline" className="border-white text-white">{genre}</Badge>
+                  <Link href={`/?genre=${encodeURIComponent(genre)}`} key={genre}>
+                    <Badge variant="outline" className="border-white text-white hover:bg-white/20 transition-colors">{genre}</Badge>
+                  </Link>
                 ))}
               </div>
 

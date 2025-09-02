@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { books as allBooks } from '@/lib/data';
 import type { Book } from '@/lib/types';
 import BookCard from '@/components/book-card';
@@ -16,10 +17,19 @@ import { Search } from 'lucide-react';
 
 const genres = Array.from(new Set(allBooks.map(book => book.genre)));
 
-export default function Home() {
+function BookGrid() {
+  const searchParams = useSearchParams();
+  const genreFromQuery = searchParams.get('genre');
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGenre, setSelectedGenre] = useState('All');
   const [sortOrder, setSortOrder] = useState('rating-desc');
+
+  useEffect(() => {
+    if (genreFromQuery && genres.includes(genreFromQuery)) {
+      setSelectedGenre(genreFromQuery);
+    }
+  }, [genreFromQuery]);
 
   const filteredAndSortedBooks = useMemo(() => {
     let books: Book[] = [...allBooks];
@@ -129,5 +139,13 @@ export default function Home() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BookGrid />
+    </Suspense>
   );
 }
