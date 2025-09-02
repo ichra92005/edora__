@@ -1,0 +1,28 @@
+import type { Book } from './types';
+
+export const books: Book[] = [
+  { id: 1, title: 'The Way of Kings', author: 'Brandon Sanderson', genre: 'Fantasy', rating: 4.8, coverImage: 'https://picsum.photos/seed/1/300/450' },
+  { id: 2, title: 'Dune', author: 'Frank Herbert', genre: 'Sci-Fi', rating: 4.7, coverImage: 'https://picsum.photos/seed/2/300/450' },
+  { id: 3, title: 'The Silent Patient', author: 'Alex Michaelides', genre: 'Mystery', rating: 4.5, coverImage: 'https://picsum.photos/seed/3/300/450' },
+  { id: 4, title: 'Pride and Prejudice', author: 'Jane Austen', genre: 'Romance', rating: 4.6, coverImage: 'https://picsum.photos/seed/4/300/450' },
+  { id: 5, title: 'Project Hail Mary', author: 'Andy Weir', genre: 'Sci-Fi', rating: 4.9, coverImage: 'https://picsum.photos/seed/5/300/450' },
+  { id: 6, title: 'Mistborn: The Final Empire', author: 'Brandon Sanderson', genre: 'Fantasy', rating: 4.7, coverImage: 'https://picsum.photos/seed/6/300/450' },
+  { id: 7, title: 'The Guest List', author: 'Lucy Fokley', genre: 'Mystery', rating: 4.3, coverImage: 'https://picsum.photos/seed/7/300/450' },
+  { id: 8, title: 'The Love Hypothesis', author: 'Ali Hazelwood', genre: 'Romance', rating: 4.4, coverImage: 'https://picsum.photos/seed/8/300/450' },
+  { id: 9, title: 'The Name of the Wind', author: 'Patrick Rothfuss', genre: 'Fantasy', rating: 4.8, coverImage: 'https://picsum.photos/seed/9/300/450' },
+  { id: 10, title: 'Neuromancer', author: 'William Gibson', genre: 'Sci-Fi', rating: 4.5, coverImage: 'https://picsum.photos/seed/10/300/450' },
+  { id: 11, title: 'Gone Girl', author: 'Gillian Flynn', genre: 'Mystery', rating: 4.6, coverImage: 'https://picsum.photos/seed/11/300/450' },
+  { id: 12, title: 'Red, White & Royal Blue', author: 'Casey McQuiston', genre: 'Romance', rating: 4.5, coverImage: 'https://picsum.photos/seed/12/300/450' },
+  { id: 13, title: 'A Game of Thrones', author: 'George R.R. Martin', genre: 'Fantasy', rating: 4.7, coverImage: 'https://picsum.photos/seed/13/300/450' },
+  { id: 14, title: 'The Martian', author: 'Andy Weir', genre: 'Sci-Fi', rating: 4.7, coverImage: 'https://picsum.photos/seed/14/300/450' },
+  { id: 15, title: 'The Da Vinci Code', author: 'Dan Brown', genre: 'Mystery', rating: 4.2, coverImage: 'https://picsum.photos/seed/15/300/450' },
+  { id: 16, title: 'The Hating Game', author: 'Sally Thorne', genre: 'Romance', rating: 4.3, coverImage: 'https://picsum.photos/seed/16/300/450' },
+  { id: 17, title: 'Words of Radiance', author: 'Brandon Sanderson', genre: 'Fantasy', rating: 4.9, coverImage: 'https://picsum.photos/seed/17/300/450' },
+  { id: 18, title: 'Hyperion', author: 'Dan Simmons', genre: 'Sci-Fi', rating: 4.6, coverImage: 'https://picsum.photos/seed/18/300/450' },
+  { id: 19, title: 'The Girl with the Dragon Tattoo', author: 'Stieg Larsson', genre: 'Mystery', rating: 4.4, coverImage: 'https://picsum.photos/seed/19/300/450' },
+  { id: 20, title: 'It Ends with Us', author: 'Colleen Hoover', genre: 'Romance', rating: 4.5, coverImage: 'https://picsum.photos/seed/20/300/450' },
+  { id: 21, title: 'Circe', author: 'Madeline Miller', genre: 'Fantasy', rating: 4.6, coverImage: 'https://picsum.photos/seed/21/300/450' },
+  { id: 22, title: 'Foundation', author: 'Isaac Asimov', genre: 'Sci-Fi', rating: 4.5, coverImage: 'https://picsum.photos/seed/22/300/450' },
+  { id: 23, title: 'Big Little Lies', author: 'Liane Moriarty', genre: 'Mystery', rating: 4.4, coverImage: 'https://picsum.photos/seed/23/300/450' },
+  { id: 24, title: 'The Notebook', author: 'Nicholas Sparks', genre: 'Romance', rating: 4.1, coverImage: 'https://picsum.photos/seed/24/300/450' },
+];
