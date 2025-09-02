@@ -23,10 +23,10 @@ export default function LoginPage() {
           {/* Left Side: Welcome Text & Explore Button */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-right text-white space-y-12">
             <div className="space-y-6">
-                 <h1 className="text-4xl md:text-5xl font-bold font-headline uppercase tracking-widest text-primary">
+                 <h1 className="text-4xl md:text-5xl font-bold font-headline uppercase tracking-widest text-white">
                     هل تود الانطلاق في رحلة إلى <span className="text-accent">عالم سلسَبيل؟</span>
                 </h1>
-                <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto lg:mx-0 font-body">
+                <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 font-body">
                     اكتشف عالم الكتب مع سَلسَبيل، منصتك المثالية لقراءة وتحميل الكتب الإلكترونية مجاناً. استمتع بتجربة قراءة فريدة وسهلة الوصول إلى مكتبة واسعة من الكتب في مختلف المجالات.
                 </p>
             </div>
