@@ -9,11 +9,11 @@ export default function SignUpPage() {
   return (
     <div className="relative min-h-screen w-full">
       <Image
-        src="https://picsum.photos/seed/darkforest/1920/1080"
-        alt="Dark forest background"
+        src="https://picsum.photos/seed/space/1920/1080"
+        alt="Starry background"
         fill
         className="object-cover"
-        data-ai-hint="dark forest"
+        data-ai-hint="starry background"
       />
       <div className="absolute inset-0 bg-black/50" />
       
