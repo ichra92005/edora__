@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 
-export default function LoginPage() {
+export default function WelcomePage() {
   return (
     <div className="relative min-h-screen w-full">
       <Image
@@ -70,6 +70,14 @@ export default function LoginPage() {
                   تسجيل الدخول
                 </Button>
               </CardContent>
+               <CardFooter className="flex justify-center">
+                <p className="text-sm text-white/70">
+                  ليس لديك حساب؟{' '}
+                  <Link href="/signup" className="font-semibold text-accent hover:underline">
+                    إنشاء حساب
+                  </Link>
+                </p>
+              </CardFooter>
             </Card>
           </div>
           
