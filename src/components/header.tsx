@@ -23,8 +23,6 @@ export default function Header() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // This logic assumes you might want to sync with a class on the `html` or `body` tag
-    // For now, it just toggles its own state.
     const isDarkMode = document.documentElement.classList.contains('dark');
     setIsDark(isDarkMode);
   }, []);
