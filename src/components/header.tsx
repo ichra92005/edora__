@@ -6,30 +6,40 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import LogoLight from './logo-light';
+import LogoDark from './logo-dark';
 
 const Logo = ({ isDark }: { isDark: boolean }) => (
-  <Image 
-    src={isDark ? "/assets/logo-dark.svg" : "/assets/logo-light.svg"} 
-    alt="Salsabile Logo" 
-    width={120} 
-    height={40}
-    className="object-contain"
-    data-ai-hint="logo"
-    unoptimized
-  />
+  isDark ? <LogoDark /> : <LogoLight />
 );
 
 export default function Header() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
+    // Set initial state from the class on <html>
     const isDarkMode = document.documentElement.classList.contains('dark');
     setIsDark(isDarkMode);
+
+    // Use a MutationObserver to watch for class changes on the <html> element
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          const isDarkMode = document.documentElement.classList.contains('dark');
+          setIsDark(isDarkMode);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const toggleTheme = () => {
     document.documentElement.classList.toggle('dark');
-    setIsDark(prev => !prev);
   };
   
   return (
