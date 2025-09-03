@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Star, PlusSquare, BookOpen, Calendar, Tag, User, Languages, Milestone } from 'lucide-react';
+import { Star, PlusSquare, BookOpen, Calendar, Tag, User, Languages, Milestone, Building, Link as LinkIcon } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -36,19 +36,14 @@ export default function BookPage({ params }: BookPageProps) {
     notFound();
   }
 
-  // Mock data based on screenshot
+  // Mock data based on add book form
   const mockDetails = {
-    alternativeTitles: '纯情反派, Villain With a Crush, 순정빌런',
-    authors: ['Seyoon'],
-    artists: ['Seyoon'],
-    genres: ['Webtoon', 'Drama', 'Comedy', 'Romance', 'Shoujo', 'Suspense'],
-    origin: 'Korean Manhwa',
-    readingDirection: 'From left to right',
-    publishDate: '2022/7/20',
-    endDate: '2025/2/5',
+    publisher: 'Publisher One',
+    author: book.author,
+    genres: [book.genre, 'Adventure', 'Fiction'],
+    publishDate: '2023/10/26',
     storyStatus: 'Finished',
-    translationStatus: 'Ongoing',
-    sources: ['Raw', 'Manga Updates'],
+    source: 'https://example.com/raw-source',
     description: 'A special police force exists to deal with superpowered criminals. A special, powerful police officer, Han Do-ryeong, who is a quiet person! But is he the worst villain with the worst villain, the insane "Park Ro-za"?',
   };
 
@@ -90,12 +85,11 @@ export default function BookPage({ params }: BookPageProps) {
             <Card>
                 <CardHeader>
                     <CardTitle className="font-headline text-4xl">{book.title}</CardTitle>
-                    <p className="text-muted-foreground">{mockDetails.alternativeTitles}</p>
                 </CardHeader>
                 <CardContent>
                     <div className="flex flex-wrap gap-2 mb-6">
                         {mockDetails.genres.map(genre => (
-                        <Link href={`/?genre=${encodeURIComponent(genre)}`} key={genre}>
+                        <Link href={`/library?genre=${encodeURIComponent(genre)}`} key={genre}>
                             <Badge variant="secondary" className="hover:bg-primary/20 transition-colors">{genre}</Badge>
                         </Link>
                         ))}
@@ -104,30 +98,18 @@ export default function BookPage({ params }: BookPageProps) {
                     <Separator className="my-6"/>
 
                     <div className="space-y-4 text-sm">
-                        <DetailItem icon={User} label="Authors">
-                            <div className="flex flex-wrap gap-2">
-                                {mockDetails.authors.map(a => (
-                                    <Link key={a} href={`/author/${encodeURIComponent(a)}`}>
-                                        <Badge variant="outline" className="hover:bg-accent/20">{a}</Badge>
-                                    </Link>
-                                ))}
-                            </div>
+                        <DetailItem icon={User} label="Author">
+                            <Link href={`/author/${encodeURIComponent(mockDetails.author)}`}>
+                                <Badge variant="outline" className="hover:bg-accent/20">{mockDetails.author}</Badge>
+                            </Link>
                         </DetailItem>
-                        <DetailItem icon={User} label="Artists">
-                            <div className="flex flex-wrap gap-2">
-                                {mockDetails.artists.map(a => <Badge key={a} variant="outline">{a}</Badge>)}
-                            </div>
-                        </DetailItem>
-                        <DetailItem icon={Milestone} label="Origin" value={mockDetails.origin} />
-                        <DetailItem icon={Languages} label="Reading Direction" value={mockDetails.readingDirection} />
+                        <DetailItem icon={Building} label="Publisher" value={mockDetails.publisher} />
                         <DetailItem icon={Calendar} label="Publish Date" value={mockDetails.publishDate} />
-                        <DetailItem icon={Calendar} label="End Date" value={mockDetails.endDate} />
-                        <DetailItem icon={Tag} label="Story Status" value={<Badge variant={mockDetails.storyStatus === 'Finished' ? 'default' : 'secondary'}>{mockDetails.storyStatus}</Badge>} />
-                        <DetailItem icon={Tag} label="Translation" value={<Badge variant={mockDetails.translationStatus === 'Ongoing' ? 'secondary' : 'default'}>{mockDetails.translationStatus}</Badge>} />
-                         <DetailItem icon={BookOpen} label="Sources">
-                             <div className="flex flex-wrap gap-2">
-                                {mockDetails.sources.map(s => <Badge key={s} variant="outline" >{s}</Badge>)}
-                            </div>
+                        <DetailItem icon={Tag} label="Status" value={<Badge variant={mockDetails.storyStatus === 'Finished' ? 'default' : 'secondary'}>{mockDetails.storyStatus}</Badge>} />
+                         <DetailItem icon={LinkIcon} label="Source">
+                             <a href={mockDetails.source} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                {mockDetails.source}
+                            </a>
                         </DetailItem>
                     </div>
 
