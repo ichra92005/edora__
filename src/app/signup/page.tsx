@@ -22,11 +22,11 @@ export default function RoleSelectionPage() {
   return (
     <div className="relative min-h-screen w-full">
        <Image
-        src="https://picsum.photos/seed/space/1920/1080"
-        alt="Starry background"
+        src="https://picsum.photos/seed/forest/1920/1080"
+        alt="Dark forest background"
         fill
         className="object-cover"
-        data-ai-hint="starry background"
+        data-ai-hint="dark forest"
       />
       <div className="absolute inset-0 bg-black/50" />
       
