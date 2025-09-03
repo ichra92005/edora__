@@ -2,6 +2,8 @@ import { books } from '@/lib/data';
 import BookCard from '@/components/book-card';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Mail } from 'lucide-react';
 
 interface PublisherPageProps {
   params: {
@@ -34,9 +36,15 @@ export default function PublisherPage({ params }: PublisherPageProps) {
               className="rounded-lg border-4 border-background shadow-lg object-cover bg-white p-2"
               data-ai-hint="company logo"
             />
-             <div>
-              <h1 className="text-4xl font-bold font-headline text-white shadow-text">{publisherName}</h1>
-              <p className="text-white/90 shadow-text">{publisherBooks.length} Published Works</p>
+             <div className="flex items-center gap-4">
+                <div>
+                    <h1 className="text-4xl font-bold font-headline text-white shadow-text">{publisherName}</h1>
+                    <p className="text-white/90 shadow-text">{publisherBooks.length} Published Works</p>
+                </div>
+                 <Button variant="secondary">
+                    <Mail className="mr-2 h-4 w-4" />
+                    Invite to Connect
+                </Button>
             </div>
           </div>
         </div>
