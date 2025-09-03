@@ -1,0 +1,224 @@
+[debug] [2025-09-03T07:15:10.602Z] ----------------------------------------------------------------------
+[debug] [2025-09-03T07:15:10.604Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Houda\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-09-03T07:15:10.604Z] CLI Version:   14.15.1
+[debug] [2025-09-03T07:15:10.604Z] Platform:      win32
+[debug] [2025-09-03T07:15:10.604Z] Node Version:  v24.1.0
+[debug] [2025-09-03T07:15:10.604Z] Time:          Wed Sep 03 2025 08:15:10 GMT+0100 (GMT+01:00)
+[debug] [2025-09-03T07:15:10.604Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-03T07:15:10.696Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-03T07:15:10.696Z] > authorizing via signed-in user (ichraknour22@gmail.com)
+[debug] [2025-09-03T07:15:10.696Z] [iam] checking project edora-ea6f3 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-09-03T07:15:10.697Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:10.697Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:10.697Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions [none]
+[debug] [2025-09-03T07:15:10.697Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions x-goog-quota-user=projects/edora-ea6f3
+[debug] [2025-09-03T07:15:10.697Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-09-03T07:15:11.505Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions 200
+[debug] [2025-09-03T07:15:11.506Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-09-03T07:15:11.506Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:11.506Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:11.506Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3 [none]
+[debug] [2025-09-03T07:15:11.863Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3 200
+[debug] [2025-09-03T07:15:11.864Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3 {"projectId":"edora-ea6f3","projectNumber":"866045653328","displayName":"edora","name":"projects/edora-ea6f3","resources":{"hostingSite":"edora-ea6f3"},"state":"ACTIVE","etag":"1_3128fde4-efe5-4f4a-ad42-5d29a98f520a"}
+[debug] [2025-09-03T07:15:13.491Z] defaultcredentials: writing to file C:\Users\Houda\AppData\Roaming\firebase\ichraknour22_gmail_com_application_default_credentials.json
+[debug] [2025-09-03T07:15:13.492Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:13.492Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:13.492Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites pageToken=&pageSize=10
+[debug] [2025-09-03T07:15:14.436Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites 200
+[debug] [2025-09-03T07:15:14.436Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites {"sites":[{"name":"projects/edora-ea6f3/sites/edora-ea6f3","defaultUrl":"https://edora-ea6f3.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-09-03T07:15:14.437Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:14.437Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:14.437Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites 
+[debug] [2025-09-03T07:15:14.690Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites 200
+[debug] [2025-09-03T07:15:14.690Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites {"sites":[{"name":"projects/edora-ea6f3/sites/edora-ea6f3","defaultUrl":"https://edora-ea6f3.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-09-03T07:15:14.690Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:14.690Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:14.690Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3/webApps/-/config [none]
+[debug] [2025-09-03T07:15:15.181Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3/webApps/-/config 200
+[debug] [2025-09-03T07:15:15.181Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3/webApps/-/config {"projectId":"edora-ea6f3","storageBucket":"edora-ea6f3.firebasestorage.app","apiKey":"AIzaSyC6zCKxkAp1BZmjmehwnmY2blXRBPxn_Yg","authDomain":"edora-ea6f3.firebaseapp.com","messagingSenderId":"866045653328"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-09-03T07:15:18.691Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:18.692Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:18.692Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites/edora-ea6f3 [none]
+[debug] [2025-09-03T07:15:18.931Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites/edora-ea6f3 200
+[debug] [2025-09-03T07:15:18.931Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites/edora-ea6f3 {"name":"projects/edora-ea6f3/sites/edora-ea6f3","defaultUrl":"https://edora-ea6f3.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.3.3
+
+[info]    - Environments: .env
+
+
+[info]    Creating an optimized production build ...
+
+[info] Failed to compile.
+
+
+[info] ./src/app/signup/page.tsx
+Error:   x Expression expected
+    ,-[C:\Users\Houda\Desktop\New folder\src\app\signup\page.tsx:69:1]
+ 66 |     
+ 67 |   );
+ 68 | }
+ 69 | <script type="module">
+    :                      ^
+ 70 |   // Import the functions you need from the SDKs you need
+ 71 |   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+ 72 |   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+    `----
+  x Unexpected token `{`. Expected `.` or `(`
+    ,-[C:\Users\Houda\Desktop\New folder\src\app\signup\page.tsx:71:1]
+ 68 | }
+ 69 | <script type="module">
+ 70 |   // Import the functions you need from the SDKs you need
+ 71 |   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    :          ^
+ 72 |   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+ 73 |   // TODO: Add SDKs for Firebase products that you want to use
+ 74 |   // https://firebase.google.com/docs/web/setup#available-libraries
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/signup/page.tsx
+
+
+[info] 
+
+[info] > Build failed because of webpack errors
+
+[debug] [2025-09-03T07:15:22.982Z] Error: ENOENT: no such file or directory, open 'C:\Users\Houda\Desktop\New folder\.next\server\middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-09-03T07:15:55.529Z] ----------------------------------------------------------------------
+[debug] [2025-09-03T07:15:55.531Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Houda\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-09-03T07:15:55.531Z] CLI Version:   14.15.1
+[debug] [2025-09-03T07:15:55.531Z] Platform:      win32
+[debug] [2025-09-03T07:15:55.531Z] Node Version:  v24.1.0
+[debug] [2025-09-03T07:15:55.531Z] Time:          Wed Sep 03 2025 08:15:55 GMT+0100 (GMT+01:00)
+[debug] [2025-09-03T07:15:55.531Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-03T07:15:55.619Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-03T07:15:55.619Z] > authorizing via signed-in user (ichraknour22@gmail.com)
+[debug] [2025-09-03T07:15:55.620Z] [iam] checking project edora-ea6f3 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-09-03T07:15:55.620Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:55.620Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:55.621Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions [none]
+[debug] [2025-09-03T07:15:55.621Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions x-goog-quota-user=projects/edora-ea6f3
+[debug] [2025-09-03T07:15:55.621Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-09-03T07:15:56.357Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions 200
+[debug] [2025-09-03T07:15:56.357Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/edora-ea6f3:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-09-03T07:15:56.358Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:56.358Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:56.358Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3 [none]
+[debug] [2025-09-03T07:15:56.663Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3 200
+[debug] [2025-09-03T07:15:56.664Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3 {"projectId":"edora-ea6f3","projectNumber":"866045653328","displayName":"edora","name":"projects/edora-ea6f3","resources":{"hostingSite":"edora-ea6f3"},"state":"ACTIVE","etag":"1_3128fde4-efe5-4f4a-ad42-5d29a98f520a"}
+[debug] [2025-09-03T07:15:58.303Z] defaultcredentials: writing to file C:\Users\Houda\AppData\Roaming\firebase\ichraknour22_gmail_com_application_default_credentials.json
+[debug] [2025-09-03T07:15:58.304Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:58.304Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:58.304Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites pageToken=&pageSize=10
+[debug] [2025-09-03T07:15:59.172Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites 200
+[debug] [2025-09-03T07:15:59.172Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites {"sites":[{"name":"projects/edora-ea6f3/sites/edora-ea6f3","defaultUrl":"https://edora-ea6f3.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-09-03T07:15:59.172Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:59.172Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:59.173Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites 
+[debug] [2025-09-03T07:15:59.430Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites 200
+[debug] [2025-09-03T07:15:59.430Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites {"sites":[{"name":"projects/edora-ea6f3/sites/edora-ea6f3","defaultUrl":"https://edora-ea6f3.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-09-03T07:15:59.430Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:59.430Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:15:59.430Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3/webApps/-/config [none]
+[debug] [2025-09-03T07:15:59.793Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3/webApps/-/config 200
+[debug] [2025-09-03T07:15:59.794Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/edora-ea6f3/webApps/-/config {"projectId":"edora-ea6f3","storageBucket":"edora-ea6f3.firebasestorage.app","apiKey":"AIzaSyC6zCKxkAp1BZmjmehwnmY2blXRBPxn_Yg","authDomain":"edora-ea6f3.firebaseapp.com","messagingSenderId":"866045653328"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-09-03T07:16:03.345Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:16:03.345Z] Checked if tokens are valid: true, expires at: 1756887251909
+[debug] [2025-09-03T07:16:03.345Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites/edora-ea6f3 [none]
+[debug] [2025-09-03T07:16:03.547Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites/edora-ea6f3 200
+[debug] [2025-09-03T07:16:03.547Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/edora-ea6f3/sites/edora-ea6f3 {"name":"projects/edora-ea6f3/sites/edora-ea6f3","defaultUrl":"https://edora-ea6f3.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.3.3
+
+[info]    - Environments: .env
+
+
+[info]    Creating an optimized production build ...
+
+[info]  ⚠ Compiled with warnings in 1000ms
+
+
+[info] ./node_modules/handlebars/lib/index.js
+require.extensions is not supported by webpack. Use a loader instead.
+
+Import trace for requested module:
+./node_modules/handlebars/lib/index.js
+./node_modules/dotprompt/dist/index.js
+./node_modules/@genkit-ai/core/lib/registry.js
+./node_modules/genkit/lib/registry.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/recommend-similar-books.ts
+./src/app/recommendations/actions.ts
+
+./node_modules/handlebars/lib/index.js
+require.extensions is not supported by webpack. Use a loader instead.
+
+Import trace for requested module:
+./node_modules/handlebars/lib/index.js
+./node_modules/dotprompt/dist/index.js
+./node_modules/@genkit-ai/core/lib/registry.js
+./node_modules/genkit/lib/registry.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/recommend-similar-books.ts
+./src/app/recommendations/actions.ts
+
+./node_modules/handlebars/lib/index.js
+require.extensions is not supported by webpack. Use a loader instead.
+
+Import trace for requested module:
+./node_modules/handlebars/lib/index.js
+./node_modules/dotprompt/dist/index.js
+./node_modules/@genkit-ai/core/lib/registry.js
+./node_modules/genkit/lib/registry.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/recommend-similar-books.ts
+./src/app/recommendations/actions.ts
+
+
+[info]  ✓ Compiled successfully in 1000ms
+
+[info]    Skipping validation of types
+
+[info]    Skipping linting
+
+[info]    Collecting page data ...
+
+[info] 
+
+[info] > Build error occurred
+[Error: Page "/publisher/[name]" is missing "generateStaticParams()" so it cannot be used with "output: export" config.]
+
+[debug] [2025-09-03T07:16:09.966Z] Error: ENOENT: no such file or directory, open 'C:\Users\Houda\Desktop\New folder\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
