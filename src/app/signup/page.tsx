@@ -36,7 +36,7 @@ export default function RoleSelectionPage() {
             title="READER SPACE"
             arabicTitle="فضاء القارئ"
             icon={PenTool}
-            color="bg-gradient-to-br from-blue-500 to-cyan-400"
+            color="bg-[#fcd5ce]"
             href="/signup/reader"
           />
           <RoleCard 
