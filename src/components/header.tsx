@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import Logo from './logo';
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains('dark');
