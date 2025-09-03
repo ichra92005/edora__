@@ -38,7 +38,7 @@ export default function BookPage({ params }: BookPageProps) {
 
   // Mock data based on add book form
   const mockDetails = {
-    publisher: 'Publisher One',
+    publisher: book.publisher,
     author: book.author,
     genres: [book.genre, 'Adventure', 'Fiction'],
     publishDate: '2023/10/26',
@@ -103,7 +103,11 @@ export default function BookPage({ params }: BookPageProps) {
                                 <Badge variant="outline" className="hover:bg-accent/20">{mockDetails.author}</Badge>
                             </Link>
                         </DetailItem>
-                        <DetailItem icon={Building} label="Publisher" value={mockDetails.publisher} />
+                        <DetailItem icon={Building} label="Publisher">
+                           <Link href={`/publisher/${encodeURIComponent(mockDetails.publisher)}`}>
+                                <Badge variant="outline" className="hover:bg-accent/20">{mockDetails.publisher}</Badge>
+                            </Link>
+                        </DetailItem>
                         <DetailItem icon={Calendar} label="Publish Date" value={mockDetails.publishDate} />
                         <DetailItem icon={Tag} label="Status" value={<Badge variant={mockDetails.storyStatus === 'Finished' ? 'default' : 'secondary'}>{mockDetails.storyStatus}</Badge>} />
                          <DetailItem icon={LinkIcon} label="Source">
