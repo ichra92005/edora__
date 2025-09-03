@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Upload, FileText, Link as LinkIcon, AlertCircle, CheckCircle } from "lucide-react";
+import { Upload, FileText, Link as LinkIcon, AlertCircle, CheckCircle, BookUp } from "lucide-react";
 import Header from "@/components/header";
 
 const genres = [
@@ -90,17 +90,17 @@ export default function AddBookPage() {
               </div>
             </Section>
 
-            <Section title="الصور">
+            <Section title="الملفات">
               <FormRow label="غلاف الكتاب">
                 <div className="flex items-center gap-4">
-                  <Input type="file" className="flex-1" />
+                  <Input type="file" className="flex-1" accept="image/*" />
                   <Button variant="outline" size="icon"><Upload className="h-4 w-4" /></Button>
                 </div>
               </FormRow>
-              <FormRow label="صورة الغلاف">
+              <FormRow label="ملف الكتاب (PDF)">
                  <div className="flex items-center gap-4">
-                  <Input type="file" className="flex-1" />
-                  <Button variant="outline" size="icon"><FileText className="h-4 w-4" /></Button>
+                  <Input type="file" className="flex-1" accept=".pdf" />
+                  <Button variant="outline" size="icon"><BookUp className="h-4 w-4" /></Button>
                 </div>
               </FormRow>
             </Section>
