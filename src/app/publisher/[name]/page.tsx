@@ -14,6 +14,11 @@ interface PublisherPageProps {
 export default function PublisherPage({ params }: PublisherPageProps) {
   const publisherName = decodeURIComponent(params.name);
   const publisherBooks = books.filter(book => book.publisher === publisherName);
+  
+  // This is a placeholder. In a real application, you would get the
+  // current user's role from your authentication system.
+  const userRole = 'writer';
+
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -41,10 +46,12 @@ export default function PublisherPage({ params }: PublisherPageProps) {
                     <h1 className="text-4xl font-bold font-headline text-white shadow-text">{publisherName}</h1>
                     <p className="text-white/90 shadow-text">{publisherBooks.length} Published Works</p>
                 </div>
-                 <Button variant="secondary">
-                    <Mail className="mr-2 h-4 w-4" />
-                    Invite to Connect
-                </Button>
+                {userRole === 'writer' && (
+                  <Button variant="secondary">
+                      <Mail className="mr-2 h-4 w-4" />
+                      Invite to Connect
+                  </Button>
+                )}
             </div>
           </div>
         </div>
