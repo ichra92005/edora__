@@ -7,8 +7,17 @@ import { Input } from '@/components/ui/input';
 
 export default function WelcomePage() {
   return (
-    <div className="min-h-screen w-full bg-background font-serif">
-      <div className="container mx-auto px-4 py-8 text-center">
+    <div className="relative min-h-screen w-full font-serif text-white">
+       <Image
+        src="https://storage.googleapis.com/project-ichra-images/witch-reading.png"
+        alt="A person reading a book under a large tree in a serene field"
+        fill
+        className="object-cover"
+        data-ai-hint="fantasy illustration"
+      />
+      <div className="absolute inset-0 bg-black/50" />
+
+      <div className="relative z-10 container mx-auto px-4 py-8 text-center">
         
         <header className="flex justify-between items-center py-4">
             <h1 className="text-4xl font-bold tracking-wider">Edra</h1>
@@ -18,7 +27,7 @@ export default function WelcomePage() {
                 <Link href="#" className="hover:text-primary transition-colors">COMMUNITY</Link>
                 <Link href="/login" className="hover:text-primary transition-colors">LOG IN</Link>
             </nav>
-            <Button variant="outline" className="md:hidden">Menu</Button>
+            <Button variant="outline" className="md:hidden bg-transparent border-white/50 hover:bg-white/10">Menu</Button>
         </header>
 
         <main>
@@ -28,7 +37,7 @@ export default function WelcomePage() {
                     <br />
                     STAY FOR THE <span className="text-primary">COMMUNITY</span>.
                 </h2>
-                <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                <p className="mt-4 text-white/80 max-w-2xl mx-auto">
                     Discover your next favorite read, connect with fellow book lovers, and share your own stories with a vibrant and welcoming community.
                 </p>
                 <div className="mt-8 flex justify-center gap-4">
@@ -38,7 +47,7 @@ export default function WelcomePage() {
                         </Button>
                     </Link>
                     <Link href="/signup">
-                         <Button size="lg" variant="outline" className="font-semibold px-8 py-6 text-base">
+                         <Button size="lg" variant="outline" className="font-semibold px-8 py-6 text-base bg-transparent border-white/80 hover:bg-white/10">
                             Join Now
                         </Button>
                     </Link>
@@ -57,8 +66,8 @@ export default function WelcomePage() {
             </section>
         </main>
 
-        <footer className="py-8 mt-16 border-t">
-             <p className="text-sm text-muted-foreground">&copy; 2024 Edra. All rights reserved.</p>
+        <footer className="py-8 mt-16 border-t border-white/20">
+             <p className="text-sm text-white/70">&copy; 2024 Edra. All rights reserved.</p>
         </footer>
 
       </div>
