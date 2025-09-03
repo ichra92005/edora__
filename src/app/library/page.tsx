@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, Suspense } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { books as allBooks } from '@/lib/data';
 import type { Book } from '@/lib/types';
@@ -88,10 +89,12 @@ function BookGrid() {
           </section>
 
           <div className="mb-8">
-             <Button variant="outline" className="w-full h-12 text-lg justify-end px-6 mb-4 border-border/60 bg-card hover:bg-muted">
-                <span className="flex-1 text-center font-headline tracking-wider">إضافة كتاب جديد</span>
-                <Eye className="h-6 w-6 ml-4" />
-            </Button>
+            <Link href="/library/add" className="w-full block">
+                <Button variant="outline" className="w-full h-12 text-lg justify-end px-6 mb-4 border-border/60 bg-card hover:bg-muted">
+                    <span className="flex-1 text-center font-headline tracking-wider">إضافة كتاب جديد</span>
+                    <Eye className="h-6 w-6 ml-4" />
+                </Button>
+            </Link>
             <div className="p-4 bg-card rounded-lg shadow-sm border">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                 <div className="relative">
