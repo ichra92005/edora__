@@ -3,14 +3,14 @@ import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { PenTool, Home, Building } from 'lucide-react';
 
-const RoleCard = ({ title, arabicTitle, icon: Icon, color, href }: { title: string, arabicTitle: string, icon: React.ElementType, color: string, href: string }) => (
+const RoleCard = ({ title, arabicTitle, icon: Icon, color, href, textColor = 'text-white' }: { title: string, arabicTitle: string, icon: React.ElementType, color: string, href: string, textColor?: string }) => (
   <Link href={href} className="block w-full max-w-sm transform transition-transform hover:scale-105">
-    <Card className={`relative overflow-hidden rounded-2xl p-8 text-center text-white shadow-2xl ${color}`}>
-      <Icon className="mx-auto h-12 w-12 mb-4 text-white/80" />
+    <Card className={`relative overflow-hidden rounded-2xl p-8 text-center ${textColor} shadow-2xl ${color}`}>
+      <Icon className={`mx-auto h-12 w-12 mb-4 ${textColor}/80`} />
       <div className="relative z-10">
         <h2 className="text-xl font-bold uppercase tracking-wider">{title}</h2>
         <p className="text-3xl font-headline mt-1">{arabicTitle}</p>
-        <p className="mt-6 font-semibold uppercase tracking-widest text-sm border border-white/50 rounded-full py-2 px-4 inline-block hover:bg-white/10 transition-colors">
+        <p className={`mt-6 font-semibold uppercase tracking-widest text-sm border ${textColor}/50 rounded-full py-2 px-4 inline-block hover:bg-white/10 transition-colors`}>
           Access the Portal
         </p>
       </div>
@@ -50,7 +50,8 @@ export default function RoleSelectionPage() {
             title="PUBLISHER SPACE"
             arabicTitle="فضاء الناشر"
             icon={Building}
-            color="bg-gradient-to-br from-purple-500 to-indigo-400"
+            color="bg-[#FEFADC]"
+            textColor="text-gray-800"
             href="/#"
           />
         </main>
