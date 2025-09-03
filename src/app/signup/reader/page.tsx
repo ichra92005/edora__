@@ -9,7 +9,7 @@ export default function ReaderSignUpPage() {
   return (
     <div className="relative min-h-screen w-full">
       <Image
-        src="https://storage.googleapis.com/project-ichra-images/Edora-background.png"
+        src="https://storage.googleapis.com/project-ichra-images/Edora-logo-2.png"
         alt="Enchanting book illustration"
         fill
         className="object-cover"
