@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { PenTool, Home, Building } from 'lucide-react';
-import UniversityLogo from '@/components/university-logo';
 
 const RoleCard = ({ title, arabicTitle, icon: Icon, color, href }: { title: string, arabicTitle: string, icon: React.ElementType, color: string, href: string }) => (
   <Link href={href} className="block w-full max-w-sm transform transition-transform hover:scale-105">
@@ -32,10 +31,7 @@ export default function RoleSelectionPage() {
       <div className="absolute inset-0 bg-black/50" />
       
       <div className="relative min-h-screen flex flex-col items-center justify-center p-4 text-center">
-        <header className="absolute top-0 py-6">
-          <UniversityLogo />
-        </header>
-        <main className="flex flex-wrap justify-center gap-8 mt-24 mb-16">
+        <main className="flex flex-wrap justify-center gap-8 my-16">
           <RoleCard 
             title="READER SPACE"
             arabicTitle="فضاء القارئ"
