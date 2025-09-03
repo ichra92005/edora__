@@ -53,12 +53,8 @@ export default function AddBookPage() {
           </Alert>
 
           <form className="space-y-8">
-            <Section title="العناوين">
+            <Section title="العنوان">
               <FormRow label="عنوان الكتاب"><Input placeholder="العنوان الأصلي للكتاب" /></FormRow>
-              <FormRow label="العنوان العربي"><Input placeholder="العنوان باللغة العربية" /></FormRow>
-              <FormRow label="العنوان الإنجليزي"><Input placeholder="العنوان باللغة الإنجليزية" /></FormRow>
-              <FormRow label="العنوان الياباني"><Input placeholder="العنوان باللغة اليابانية (إن وجد)" /></FormRow>
-              <FormRow label="مسميات أخرى"><Input placeholder="افصل بينها بفاصلة" /></FormRow>
             </Section>
 
             <Section title="البيانات">
