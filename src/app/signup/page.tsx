@@ -43,7 +43,7 @@ export default function RoleSelectionPage() {
             title="WRITER SPACE"
             arabicTitle="فضاء الكاتب"
             icon={Home}
-            color="bg-gradient-to-br from-lime-500 to-green-400"
+            color="bg-[#F3B391]"
             href="/#"
           />
           <RoleCard 
