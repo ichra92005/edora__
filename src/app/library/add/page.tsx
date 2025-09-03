@@ -48,7 +48,7 @@ export default function AddBookPage() {
               <AlertCircle className="h-4 w-4" />
               <AlertTitle className="text-destructive">ملاحظة هامة</AlertTitle>
               <AlertDescription>
-                  لا نقبل بالمانجات التي تحتوي على مشاهد مخلة. بإضافتك للعمل فأنت توافق على سياسة النشر في موقعنا.
+                  لا نقبل بالكتب التي تحتوي على مشاهد مخلة. بإضافتك للعمل فأنت توافق على سياسة النشر في موقعنا.
               </AlertDescription>
           </Alert>
 
