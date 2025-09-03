@@ -10,7 +10,7 @@ export default function PublisherSignUpPage() {
   return (
     <div className="relative min-h-screen w-full">
       <Image
-        src="https://storage.googleapis.com/project-ichra-images/Edora-logo-2.png"
+        src="https://res.cloudinary.com/drdebnl11/image/upload/v1756871089/bacjgroun_yfwnuv.png"
         alt="Enchanting book illustration"
         fill
         className="object-cover"
