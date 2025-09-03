@@ -22,11 +22,11 @@ export default function RoleSelectionPage() {
   return (
     <div className="relative min-h-screen w-full">
        <Image
-        src="https://picsum.photos/seed/forest/1920/1080"
-        alt="Dark forest background"
+        src="https://storage.googleapis.com/project-ichra-images/Edora-background.png"
+        alt="Edora illustration background"
         fill
         className="object-cover"
-        data-ai-hint="dark forest"
+        data-ai-hint="fantasy illustration"
       />
       <div className="absolute inset-0 bg-black/50" />
       
