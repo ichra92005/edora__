@@ -52,15 +52,7 @@ export default function WelcomePage() {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
-            <Link href="/library">
-              <div className="group relative">
-                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white flex items-center justify-center text-2xl md:text-3xl uppercase tracking-[0.1em] text-background font-headline cursor-pointer transition-all duration-300">
-                  Explore
-                </div>
-                <div className="absolute inset-0 rounded-full bg-white/20 scale-100 group-hover:scale-150 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
-              </div>
-            </Link>
+          <div className="flex flex-col justify-center items-center gap-8">
             <Card className="w-full max-w-sm bg-white/5 backdrop-blur-sm border border-white/10 text-white">
               <CardHeader>
                 <CardTitle className="text-2xl font-headline text-center">Member Login</CardTitle>
@@ -92,6 +84,14 @@ export default function WelcomePage() {
                 </p>
               </CardContent>
             </Card>
+            <Link href="/library">
+              <div className="group relative">
+                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white flex items-center justify-center text-2xl md:text-3xl uppercase tracking-[0.1em] text-background font-headline cursor-pointer transition-all duration-300">
+                  Explore
+                </div>
+                <div className="absolute inset-0 rounded-full bg-white/20 scale-100 group-hover:scale-150 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+              </div>
+            </Link>
           </div>
         </main>
       </div>
