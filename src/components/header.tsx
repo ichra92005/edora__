@@ -6,22 +6,15 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import LogoLight from './logo-light';
-import LogoDark from './logo-dark';
-
-const Logo = ({ isDark }: { isDark: boolean }) => (
-  isDark ? <LogoDark /> : <LogoLight />
-);
+import Logo from './logo';
 
 export default function Header() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Set initial state from the class on <html>
     const isDarkMode = document.documentElement.classList.contains('dark');
     setIsDark(isDarkMode);
 
-    // Use a MutationObserver to watch for class changes on the <html> element
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'class') {
@@ -47,7 +40,7 @@ export default function Header() {
       <div className="container flex h-20 items-center justify-between gap-4">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <Logo isDark={isDark} />
+            <Logo />
           </Link>
           <div className="relative w-full max-w-xs hidden md:block">
             <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
