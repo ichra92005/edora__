@@ -22,7 +22,7 @@ export default function RoleSelectionPage() {
   return (
     <div className="relative min-h-screen w-full">
        <Image
-        src="https://storage.googleapis.com/project-ichra-images/Edora-background.png"
+        src="https://res.cloudinary.com/drdebnl11/image/upload/v1756871089/bacjgroun_yfwnuv.png"
         alt="Edora illustration background"
         fill
         className="object-cover"
