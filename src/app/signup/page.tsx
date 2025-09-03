@@ -44,14 +44,15 @@ export default function RoleSelectionPage() {
             title="WRITER SPACE"
             arabicTitle="فضاء الكاتب"
             icon={Home}
-            color="bg-[#F3B391]"
+            color="bg-[#E6CCB2]"
+            textColor="text-gray-800"
             href="/#"
           />
           <RoleCard 
             title="PUBLISHER SPACE"
             arabicTitle="فضاء الناشر"
             icon={Building}
-            color="bg-[#FEFADC]"
+            color="bg-[#DDB892]"
             textColor="text-gray-800"
             href="/#"
           />
