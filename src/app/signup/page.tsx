@@ -54,7 +54,7 @@ export default function RoleSelectionPage() {
             icon={Building}
             color="bg-[#DDB892]"
             textColor="text-gray-800"
-            href="/#"
+            href="/signup/publisher"
           />
         </main>
         <footer className="absolute bottom-0 py-4 text-sm text-white/70">
