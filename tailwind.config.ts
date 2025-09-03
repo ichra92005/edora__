@@ -17,9 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-tajawal)', 'sans-serif'],
-        headline: ['var(--font-cairo)', 'serif'],
-        amiri: ['var(--font-amiri)', 'serif'],
+        sans: ['var(--font-barlow-condensed)', 'sans-serif'],
+        headline: ['var(--font-bellefair)', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

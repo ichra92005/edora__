@@ -4,9 +4,9 @@ export default function Logo() {
   return (
     <Image
       src="/logo.png"
-      alt="Edra Logo"
-      width={40}
-      height={40}
+      alt="Edora Logo"
+      width={48}
+      height={48}
       className="rounded-full"
     />
   );
