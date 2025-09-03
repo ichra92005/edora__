@@ -40,16 +40,28 @@ export default function WelcomePage() {
         </header>
 
         <main className="flex-1 container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-          <div className="text-center md:text-left">
-            <h2 className="text-lg md:text-2xl uppercase tracking-[0.2em] text-secondary">
-              So, you want to travel to
-            </h2>
-            <h1 className="font-headline text-8xl md:text-9xl lg:text-[150px] uppercase my-4">
-              Edora
-            </h1>
-            <p className="max-w-md mx-auto md:mx-0 text-secondary leading-loose">
-              Let&apos;s face it; if you want to read, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we&apos;ll give you a truly out of this world experience!
-            </p>
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div>
+              <h2 className="text-lg md:text-2xl uppercase tracking-[0.2em] text-secondary">
+                So, you want to travel to
+              </h2>
+              <h1 className="font-headline text-8xl md:text-9xl lg:text-[150px] uppercase my-4">
+                Edora
+              </h1>
+              <p className="max-w-md mx-auto md:mx-0 text-secondary leading-loose">
+                Let&apos;s face it; if you want to read, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we&apos;ll give you a truly out of this world experience!
+              </p>
+            </div>
+             <div className="mt-10">
+                <Link href="/library">
+                <div className="group relative">
+                    <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white flex items-center justify-center text-2xl md:text-3xl uppercase tracking-[0.1em] text-background font-headline cursor-pointer transition-all duration-300">
+                    Explore
+                    </div>
+                    <div className="absolute inset-0 rounded-full bg-white/20 scale-100 group-hover:scale-150 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+                </div>
+                </Link>
+            </div>
           </div>
 
           <div className="flex flex-col justify-center items-center gap-8">
@@ -84,14 +96,6 @@ export default function WelcomePage() {
                 </p>
               </CardContent>
             </Card>
-            <Link href="/library">
-              <div className="group relative">
-                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white flex items-center justify-center text-2xl md:text-3xl uppercase tracking-[0.1em] text-background font-headline cursor-pointer transition-all duration-300">
-                  Explore
-                </div>
-                <div className="absolute inset-0 rounded-full bg-white/20 scale-100 group-hover:scale-150 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
-              </div>
-            </Link>
           </div>
         </main>
       </div>
