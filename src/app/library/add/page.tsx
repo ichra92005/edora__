@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Upload, FileText, Link as LinkIcon, AlertCircle, CheckCircle, BookUp } from "lucide-react";
+import { Upload, FileText, Link as LinkIcon, AlertCircle, CheckCircle, BookUp, KeyRound } from "lucide-react";
 import Header from "@/components/header";
 
 const genres = [
@@ -110,6 +110,12 @@ export default function AddBookPage() {
                     <div className="flex items-center gap-4">
                     <Input placeholder="https://example.com" />
                     <Button variant="outline" size="icon"><LinkIcon className="h-4 w-4" /></Button>
+                    </div>
+                </FormRow>
+                <FormRow label="كود الناشر">
+                    <div className="flex items-center gap-4">
+                    <Input placeholder="أدخل كود الناشر الفريد" />
+                    <Button variant="outline" size="icon"><KeyRound className="h-4 w-4" /></Button>
                     </div>
                 </FormRow>
             </Section>
