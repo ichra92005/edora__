@@ -4,8 +4,11 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Star, PlusSquare } from 'lucide-react';
+import { Star, PlusSquare, BookOpen, Calendar, Tag, User, Languages, Milestone } from 'lucide-react';
 import Link from 'next/link';
+import Header from '@/components/header';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 
 interface BookPageProps {
   params: {
@@ -13,12 +16,18 @@ interface BookPageProps {
   };
 }
 
-const InfoRow = ({ label, value }: { label: string; value: string | React.ReactNode }) => (
-  <div className="flex justify-between items-center py-2">
-    <dt className="font-bold text-lg text-white">{label}</dt>
-    <dd className="text-right text-gray-200">{value}</dd>
-  </div>
+const DetailItem = ({ icon: Icon, label, value, children }: { icon: React.ElementType, label: string, value?: string | React.ReactNode, children?: React.ReactNode }) => (
+    <div className="flex items-start">
+        <div className="flex-shrink-0 flex items-center gap-2 text-muted-foreground w-36">
+            <Icon className="h-5 w-5" />
+            <span className="font-semibold">{label}</span>
+        </div>
+        <div className="text-foreground flex-grow">
+            {children || value}
+        </div>
+    </div>
 );
+
 
 export default function BookPage({ params }: BookPageProps) {
   const book = allBooks.find(b => b.id.toString() === params.id);
@@ -44,65 +53,97 @@ export default function BookPage({ params }: BookPageProps) {
   };
 
   return (
-    <div className="bg-[#3a6a6a] min-h-screen py-8">
-      <div className="container mx-auto px-4">
-        <div className="bg-[#4e8e8e] p-8 rounded-lg shadow-xl text-white">
-          <div className="text-center mb-6">
-            <h1 className="text-4xl font-bold font-headline">{book.title}</h1>
-            <p className="text-gray-300 mt-2">{mockDetails.alternativeTitles}</p>
+    <>
+      <Header />
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Left Column (Cover and Actions) */}
+          <div className="lg:col-span-1 flex flex-col items-center">
+            <Card className="w-full overflow-hidden">
+                <Image
+                    src={book.coverImage}
+                    alt={`Cover of ${book.title}`}
+                    width={350}
+                    height={525}
+                    className="object-cover w-full aspect-[2/3]"
+                    data-ai-hint="book cover"
+                />
+            </Card>
+            <div className="flex gap-2 mt-4 w-full">
+              <Button size="lg" className="flex-1">
+                <BookOpen className="mr-2 h-5 w-5" /> Read
+              </Button>
+              <Button variant="outline" size="lg">
+                <PlusSquare className="mr-2 h-5 w-5" /> Add to Library
+              </Button>
+            </div>
+             <div className="flex gap-2 mt-2 w-full">
+               <Button variant="ghost" className="flex-1">
+                <Star className="mr-2 h-5 w-5 text-yellow-400 fill-yellow-400" /> 
+                <span>{book.rating}</span>
+              </Button>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex flex-wrap gap-2 mb-6">
-                {mockDetails.genres.map(genre => (
-                  <Link href={`/?genre=${encodeURIComponent(genre)}`} key={genre}>
-                    <Badge variant="outline" className="border-white text-white hover:bg-white/20 transition-colors">{genre}</Badge>
-                  </Link>
-                ))}
-              </div>
 
-              <dl className="space-y-2">
-                <InfoRow label="المؤلفون" value={<div className="flex gap-2">{mockDetails.authors.map(a => <Link key={a} href={`/author/${encodeURIComponent(a)}`}><Badge variant="secondary" className="hover:bg-primary/20">{a}</Badge></Link>)}</div>} />
-                <InfoRow label="الرسامون" value={<div className="flex gap-2">{mockDetails.artists.map(a => <Badge key={a} variant="secondary">{a}</Badge>)}</div>} />
-                <InfoRow label="التصنيف" value="-" />
-                <InfoRow label="الأصل" value={mockDetails.origin} />
-                <InfoRow label="جهة القراءة" value={mockDetails.readingDirection} />
-                <InfoRow label="تاريخ النشر" value={mockDetails.publishDate} />
-                <InfoRow label="تاريخ الانتهاء" value={mockDetails.endDate} />
-                <InfoRow label="حالة القصة" value={mockDetails.storyStatus} />
-                <InfoRow label="حالة الترجمة" value={mockDetails.translationStatus} />
-                <InfoRow label="المصادر" value={<div className="flex gap-2">{mockDetails.sources.map(s => <Badge key={s} variant="outline" className="border-gray-400 text-gray-200">{s}</Badge>)}</div>} />
-              </dl>
+          {/* Right Column (Details) */}
+          <div className="lg:col-span-3">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="font-headline text-4xl">{book.title}</CardTitle>
+                    <p className="text-muted-foreground">{mockDetails.alternativeTitles}</p>
+                </CardHeader>
+                <CardContent>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        {mockDetails.genres.map(genre => (
+                        <Link href={`/?genre=${encodeURIComponent(genre)}`} key={genre}>
+                            <Badge variant="secondary" className="hover:bg-primary/20 transition-colors">{genre}</Badge>
+                        </Link>
+                        ))}
+                    </div>
+                    
+                    <Separator className="my-6"/>
 
-              <div className="mt-8">
-                <h2 className="font-bold text-xl mb-2 text-white">القصة</h2>
-                <p className="text-gray-200 leading-relaxed text-right" dir="rtl">
-                  {mockDetails.description}
-                </p>
-              </div>
+                    <div className="space-y-4 text-sm">
+                        <DetailItem icon={User} label="Authors">
+                            <div className="flex flex-wrap gap-2">
+                                {mockDetails.authors.map(a => (
+                                    <Link key={a} href={`/author/${encodeURIComponent(a)}`}>
+                                        <Badge variant="outline" className="hover:bg-accent/20">{a}</Badge>
+                                    </Link>
+                                ))}
+                            </div>
+                        </DetailItem>
+                        <DetailItem icon={User} label="Artists">
+                            <div className="flex flex-wrap gap-2">
+                                {mockDetails.artists.map(a => <Badge key={a} variant="outline">{a}</Badge>)}
+                            </div>
+                        </DetailItem>
+                        <DetailItem icon={Milestone} label="Origin" value={mockDetails.origin} />
+                        <DetailItem icon={Languages} label="Reading Direction" value={mockDetails.readingDirection} />
+                        <DetailItem icon={Calendar} label="Publish Date" value={mockDetails.publishDate} />
+                        <DetailItem icon={Calendar} label="End Date" value={mockDetails.endDate} />
+                        <DetailItem icon={Tag} label="Story Status" value={<Badge variant={mockDetails.storyStatus === 'Finished' ? 'default' : 'secondary'}>{mockDetails.storyStatus}</Badge>} />
+                        <DetailItem icon={Tag} label="Translation" value={<Badge variant={mockDetails.translationStatus === 'Ongoing' ? 'secondary' : 'default'}>{mockDetails.translationStatus}</Badge>} />
+                         <DetailItem icon={BookOpen} label="Sources">
+                             <div className="flex flex-wrap gap-2">
+                                {mockDetails.sources.map(s => <Badge key={s} variant="outline" >{s}</Badge>)}
+                            </div>
+                        </DetailItem>
+                    </div>
 
-            </div>
-            <div className="flex flex-col items-center">
-              <Image
-                src={book.coverImage}
-                alt={`Cover of ${book.title}`}
-                width={350}
-                height={525}
-                className="rounded-lg shadow-lg object-cover w-full aspect-[2/3]"
-                data-ai-hint="book cover"
-              />
-              <div className="flex gap-4 mt-4">
-                <Button variant="outline" size="icon" className="bg-transparent border-white text-white hover:bg-white hover:text-black">
-                  <Star />
-                </Button>
-                <Button variant="outline" size="icon" className="bg-transparent border-white text-white hover:bg-white hover:text-black">
-                  <PlusSquare />
-                </Button>
-              </div>
-            </div>
+                    <Separator className="my-6"/>
+
+                    <div>
+                        <h3 className="font-headline text-2xl font-bold mb-3">Synopsis</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                            {mockDetails.description}
+                        </p>
+                    </div>
+                </CardContent>
+            </Card>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
