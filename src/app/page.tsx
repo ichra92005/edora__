@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
+import { Globe } from 'lucide-react';
 
 export default function WelcomePage() {
   return (
@@ -21,12 +22,17 @@ export default function WelcomePage() {
         
         <header className="flex justify-between items-center py-4">
             <h1 className="text-4xl font-bold tracking-wider">Edra</h1>
-            <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
-                <Link href="#" className="hover:text-primary transition-colors">HOME</Link>
-                <Link href="/library" className="hover:text-primary transition-colors">LIBRARY</Link>
-                <Link href="#" className="hover:text-primary transition-colors">COMMUNITY</Link>
-                <Link href="/login" className="hover:text-primary transition-colors">LOG IN</Link>
-            </nav>
+            <div className="flex items-center gap-6">
+              <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
+                  <Link href="#" className="hover:text-primary transition-colors">HOME</Link>
+                  <Link href="/library" className="hover:text-primary transition-colors">LIBRARY</Link>
+                  <Link href="#" className="hover:text-primary transition-colors">COMMUNITY</Link>
+                  <Link href="/login" className="hover:text-primary transition-colors">LOG IN</Link>
+              </nav>
+              <Button variant="ghost" size="icon" className="text-white hover:text-primary hover:bg-white/10">
+                <Globe className="h-5 w-5" />
+              </Button>
+            </div>
             <Button variant="outline" className="md:hidden bg-transparent border-white/50 hover:bg-white/10">Menu</Button>
         </header>
 
