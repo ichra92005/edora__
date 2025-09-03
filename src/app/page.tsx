@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Logo from '@/components/logo';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function WelcomePage() {
   return (
@@ -36,7 +39,7 @@ export default function WelcomePage() {
           </div>
         </header>
 
-        <main className="flex-1 container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 items-center">
+        <main className="flex-1 container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 items-center gap-8">
           <div className="text-center md:text-left">
             <h2 className="text-lg md:text-2xl uppercase tracking-[0.2em] text-secondary">
               So, you want to travel to
@@ -49,7 +52,7 @@ export default function WelcomePage() {
             </p>
           </div>
 
-          <div className="flex justify-center items-center mt-8 md:mt-0">
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
             <Link href="/library">
               <div className="group relative">
                 <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white flex items-center justify-center text-2xl md:text-3xl uppercase tracking-[0.1em] text-background font-headline cursor-pointer transition-all duration-300">
@@ -58,6 +61,37 @@ export default function WelcomePage() {
                 <div className="absolute inset-0 rounded-full bg-white/20 scale-100 group-hover:scale-150 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
               </div>
             </Link>
+            <Card className="w-full max-w-sm bg-white/5 backdrop-blur-sm border border-white/10 text-white">
+              <CardHeader>
+                <CardTitle className="text-2xl font-headline text-center">Member Login</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="username">Username</Label>
+                  <Input 
+                    id="username"
+                    type="text"
+                    placeholder="Enter your username"
+                    className="bg-white/10 border-white/20 placeholder:text-white/50 focus:bg-white/20 focus:ring-white/50"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input 
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                     className="bg-white/10 border-white/20 placeholder:text-white/50 focus:bg-white/20 focus:ring-white/50"
+                  />
+                </div>
+                 <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base py-5">
+                  Log In
+                </Button>
+                <p className="text-center text-xs text-white/70">
+                    Not a member? <Link href="/signup" className="font-semibold text-accent hover:underline">Sign up</Link>
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </main>
       </div>
