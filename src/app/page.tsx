@@ -10,7 +10,7 @@ export default function WelcomePage() {
   return (
     <div className="relative min-h-screen w-full text-white font-sans overflow-hidden">
       <Image
-        src="https://res.cloudinary.com/drdebnl11/image/upload/v1756871089/bacjgroun_yfwnuv.png"
+        src="https://res.cloudinary.com/drdebnl11/image/upload/v1756871119/Screenshot_2025-09-03_030759_xqlr8q.png"
         alt="A mystical library with floating books"
         fill
         className="object-cover"
